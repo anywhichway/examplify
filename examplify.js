@@ -39,7 +39,7 @@ const examplify = (input) => {
             const text = el.textContent;
             el.insertAdjacentHTML("afterend",text);
         }
-        return;
+        return input;
     }
     throw new TypeError(`examplify: input must be a string or an object supporting querySelectorAll, not ${type}`);
 }
