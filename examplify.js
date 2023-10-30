@@ -28,8 +28,20 @@ const replacementCallback = (text) => {
     return "```html" + text + "```" + text;
 }
 
-const examplify = (inputString) => {
-    return replaceBetween(inputString,  "```!html",  "```", replacementCallback, true);
+const examplify = (input) => {
+    const type = typeof input;
+    if(type === "string") {
+        return replaceBetween(input,  "```!html",  "```", replacementCallback, true);
+    } else if(type === "object" && input && input.querySelectorAll) {
+        for(const el of input.querySelectorAll("code[class*='language-!html']")) {
+            el.classList.remove("language-!html");
+            el.classList.add("language-html");
+            const text = el.textContent;
+            el.insertAdjacentHTML("afterend",text);
+        }
+        return;
+    }
+    throw new TypeError(`examplify: input must be a string or an object supporting querySelectorAll, not ${type}`);
 }
 
 export {examplify, examplify as default}

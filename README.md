@@ -7,7 +7,7 @@ Amplify your Markdown documentation with executable examples.
 `examplify` allows you to write Markdown documentation with executable examples.
 
 It helps you to ensure that your examples are always in sync with executable JavaScript or
-presentable HTML output.
+presentable HTML output. You can do less work and deliver more.
 
 If you like `examplify`, check out `lazui` at [lazui.org](https://lazui.org) for activating
 your Markdown files.
@@ -29,6 +29,8 @@ And use the file `examplify.js` in your project.
 ```
 
 ## Usage
+
+### Before Markdown Parsing
 
 This Markdown:
 
@@ -65,7 +67,7 @@ Will actually render as this:
 <form><input type="text" value="Hello, World!"></form>
 
 Prior to handing a string to a Markdown parser, pass it through `examplify`. Any code blocks
-marked as `!html` will be processed and the internals insefted immediately after the code block.
+marked as `!html` will be processed and the internals inserted immediately after the code block.
 
 ```
 import { examplify } from 'examplify';
@@ -78,10 +80,63 @@ console.log(examplified);
 // => "```html\n<script>console.log('Hello, World!');</script>\n```\n<script>console.log('Hello, World!');</script>"
 ```
 
+### After Markdown Parsing
+
+`examplify` will also process code blocks marked as `!html` after the Markdown has been parsed.
+
+In which case, this HTML:
+
+```html
+<code class="language-!html">
+    <span class="hljs-tag">
+        &lt;<span class="hljs-name">script</span>&gt;
+    </span>
+    <span class="language-javascript">
+        <span class="hljs-variable language_">console</span>.
+        <span class="hljs-title function_">log</span>
+        (<span class="hljs-string">"Hello, World!"</span>)
+    </span>
+    <span class="hljs-tag">&lt;/
+        <span class="hljs-name">script</span>&gt;
+    </span>
+</code>
+```
+
+will be converted to this:
+
+```html
+<code class="language-!html">
+    <span class="hljs-tag">
+        &lt;<span class="hljs-name">script</span>&gt;
+    </span>
+    <span class="language-javascript">
+        <span class="hljs-variable language_">console</span>.
+        <span class="hljs-title function_">log</span>
+        (<span class="hljs-string">"Hello, World!"</span>)
+    </span>
+    <span class="hljs-tag">&lt;/
+        <span class="hljs-name">script</span>&gt;
+    </span>
+</code>
+<script>console.log('Hello, World!');</script>
+```
+
+Pass a `document` object or any `HTMLElement` to `examplify`. All code blocks matching `code[class*='language-!html']`
+will be processed. The internals will be inserted immediately after the code block as HTML and the class will be changed to
+`language-html`.
+
+```
+import { examplify } from 'examplify';
+
+examplify(document);
+```
+
 ## License
 
 MIT
 
 # Release History (reverse chronological order)
 
-2021-10-19 v0.0.1 Initial Release.
+2021-10-30 v1.0.0 Added support for post-processing of Markdown.
+
+2021-10-29 v0.0.1 Initial Release.
