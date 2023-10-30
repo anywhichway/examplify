@@ -14,7 +14,7 @@ const replaceBetween = (inputString, delimiterStart, delimiterEnd, replacementCa
             // If the end delimiter is not found, break the loop
             break;
         }
-        startIndex = inputString.indexOf(delimiterStart, endIndex+1+(inclusive ? delimiterEnd.length : 0))
+        startIndex = inputString.indexOf(delimiterStart)
     }
     // Perform the replacements
     while(inputString.includes("_PLCHLDR_")) {

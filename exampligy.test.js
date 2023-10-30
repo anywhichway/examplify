@@ -7,6 +7,10 @@ test('augments text with html version of block delimited content', () => {
     expect(examplify("```!html\n<p>hello</p>\n```")).toBe("```html\n<p>hello</p>\n```\n<p>hello</p>\n");
 });
 
+test('augments text with html version of multiple block delimited content', () => {
+    expect(examplify("```!html\n<p>hello</p>\n```\n```!html\n<p>hello</p>\n```")).toBe("```html\n<p>hello</p>\n```\n<p>hello</p>\n\n```html\n<p>hello</p>\n```\n<p>hello</p>\n");
+});
+
 test('augments html with html version of block delimited content', () => {
     const div = document.createElement("div"),
         html = div.innerHTML = "<" + 'code class="language-!html" data-highlighted="yes"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>\n' + "<" + "/code>";;

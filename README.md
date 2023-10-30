@@ -137,8 +137,10 @@ MIT
 
 # Release History (reverse chronological order)
 
-2021-10-30 v1.0.1 Adjusted DOM processing to return the passed in element.
+2023-10-30 v1.0.2 Fixed bug related to two tags blocks in sequence.
 
-2021-10-30 v1.0.0 Added support for post-processing of Markdown.
+2023-10-30 v1.0.1 Adjusted DOM processing to return the passed in element.
 
-2021-10-29 v0.0.1 Initial Release.
+2023-10-30 v1.0.0 Added support for post-processing of Markdown.
+
+2023-10-29 v0.0.1 Initial Release.
