@@ -123,7 +123,7 @@ will be converted to this:
 
 Pass a `document` object or any `HTMLElement` to `examplify`. All code blocks matching `code[class*='language-!html']`
 will be processed. The internals will be inserted immediately after the code block as HTML and the class will be changed to
-`language-html`.
+`language-html`. Any `<script>` elements will be executed.
 
 ```
 import { examplify } from 'examplify';
@@ -136,6 +136,8 @@ examplify(document);
 MIT
 
 # Release History (reverse chronological order)
+
+2023-10-31 v1.0.3 Ensured script elements are executing when examplify applied to DOM node.
 
 2023-10-30 v1.0.2 Fixed bug related to two tags blocks in sequence.
 
