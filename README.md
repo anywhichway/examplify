@@ -34,36 +34,38 @@ And use the file `examplify.js` in your project.
 
 This Markdown:
 
-```markdown
+<pre>
 &grave;&grave;&grave;!html
 &lt;script&gt;console.log('Hello, World!');&lt;/script&gt;
 &grave;&grave;&grave;
-```
+</pre>
+
 
 Will be turned into this:
 
-```markdown
+<pre>
 &grave;&grave;&grave;html
 &lt;script&gt;console.log('Hello, World!');&lt;/script&gt;
 &grave;&grave;&grave;
 &lt;script&gt;console.log('Hello, World!');&lt;/script&gt;
-```
+</pre>
 
 And this Markdown:
 
-```markdown
+<pre>
 &grave;&grave;&grave;!html
 &lt;form&gt;&lt;input type="text" value="Hello, World!"&gt;&lt;/form&gt;
 &grave;&grave;&grave;
-```
+</pre>
 
 Will actually render as this:
 
-```markdown
+<pre>
 &grave;&grave;&grave;html
 &lt;form&gt;&lt;input type="text" value="Hello, World!"&gt;&lt;/form&gt;
 &grave;&grave;&grave;
-```
+</pre>
+
 <form><input type="text" value="Hello, World!"></form>
 
 Prior to handing a string to a Markdown parser, pass it through `examplify`. Any code blocks
@@ -105,7 +107,7 @@ In which case, this HTML:
 will be converted to this:
 
 ```html
-<code class="language-!html">
+<code class="language-html">
     <span class="hljs-tag">
         &lt;<span class="hljs-name">script</span>&gt;
     </span>
@@ -136,6 +138,8 @@ examplify(document);
 MIT
 
 # Release History (reverse chronological order)
+
+2023-11-01 v1.0.4 Fixed README formatting
 
 2023-10-31 v1.0.3 Ensured script elements are executing when examplify applied to DOM node.
 
