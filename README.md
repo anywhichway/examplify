@@ -58,13 +58,7 @@ And this Markdown:
 &grave;&grave;&grave;
 </pre>
 
-Will actually render as this:
-
-<pre>
-&grave;&grave;&grave;html
-&lt;form&gt;&lt;input type="text" value="Hello, World!"&gt;&lt;/form&gt;
-&grave;&grave;&grave;
-</pre>
+Will actually render as a form with an input field after the Markdown.
 
 <form><input type="text" value="Hello, World!"></form>
 
@@ -138,6 +132,8 @@ examplify(document);
 MIT
 
 # Release History (reverse chronological order)
+
+2023-11-01 v1.0.5 More README formatting to handle GitHub nuances.
 
 2023-11-01 v1.0.4 Fixed README formatting
 
