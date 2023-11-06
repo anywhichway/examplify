@@ -55,6 +55,12 @@ This Markdown:
 &grave;&#96;&#96;
 </pre>
 
+```markdown
+    ```!html
+        &lt;script&gt;console.log('Hello, World!');&lt;/script&gt;
+    ```
+```
+
 
 Will be turned into this:
 
