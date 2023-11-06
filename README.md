@@ -102,6 +102,8 @@ module script as source.
 
 `examplify` will also process code blocks marked as `!html` after the Markdown has been parsed.
 
+You can use this in a browser if your server does not support `examplify`.
+
 Pass a `document` object or any `HTMLElement` to `examplify`. All code blocks matching `code[class*='language-!html']`
 will be processed. The internals will be inserted immediately after the code block as HTML and the class will be changed to
 `language-html`. Any `<script>` elements will be executed.
