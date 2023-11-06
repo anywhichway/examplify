@@ -64,7 +64,6 @@ Will be turned into this:
     ```
     <script></script>console.log('Hello, World!')</script>;
 ```
-<script>console.log('Hello, World!')</script>;
 
 And this Markdown:
 
@@ -85,11 +84,6 @@ Will be turned into this:
 
 Will actually render as a form with an input field after the Markdown.
 
-<form><input type="text" value="Hello, World!"></form>
-
-
-*Note*: You can't see it here because GitHub and NPM sanitize the HTML to remove forms, but the form is actually rendered.
-
 `!javascript` is also supported.
 
 ```markdown
@@ -106,7 +100,7 @@ Will produce the following HTML:
     ```
     <script>console.log('Hello, World!');</script>
 ```
-<script>console.log('Hello, World!')</script>;
+
 
 *Note*: The script tags generated do not have a type. If you need a `module`, provide the example as `!html` with the
 module script as source.
