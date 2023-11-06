@@ -61,6 +61,24 @@ And this Markdown:
 
 Will actually render as a form with an input field after the Markdown.
 
+`!javascript` is also supported.
+
+<pre>
+&#96;&#96;&#96;!javascript
+console.log('Hello, World!')
+&grave;&#96;&#96;
+</pre>
+
+will produce the following HTML:
+
+```html
+<pre><code class="language-javascript">console.log("ok!")</code>
+<script>console.log("Hello, World!")</script></pre>
+```
+
+*Note*: The script tags generated do not have a type. If you need a `module`, provide the example as `!html` with the
+module script as source.
+
 <form><input type="text" value="Hello, World!"></form>
 
 Prior to handing a string to a Markdown parser, pass it through `examplify`. Any code blocks
@@ -127,8 +145,6 @@ will be converted to this:
 <script>console.log('Hello, World!');</script>
 ```
 
-*Note*: The script tags generated do not have a type. If you need a `module`, provide the example as `!html` with the 
-module script as source.
 
 Pass a `document` object or any `HTMLElement` to `examplify`. All code blocks matching `code[class*='language-!html']`
 will be processed. The internals will be inserted immediately after the code block as HTML and the class will be changed to
