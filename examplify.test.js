@@ -39,6 +39,13 @@ test('augments html containing script with html version of block delimited conte
     </script>\n`);
 })
 
+test('augments html containing script with html version of block delimited content', () => {
+    const div = document.createElement("div"),
+        html = div.innerHTML = `<pre><code class="language-!javascript">console.log(&quot;ok!&quot;)</code></pre>`
+    examplify(div);
+    expect(div.innerHTML).toBe(`<pre><code class="language-javascript">console.log("ok!")</code>\n<script>console.log("ok!")</script></pre>`);
+})
+
 test('throws error if input is not string or no support of querySelectorAll', () => {
     expect(() => examplify(1)).toThrowError(TypeError);
 })

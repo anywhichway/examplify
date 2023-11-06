@@ -74,6 +74,7 @@ const examplify = (input,evaluate={}) => {
     } else if(type === "object" && input && input.querySelectorAll) {
         for(const [key,value] of Object.entries(evaluate)) {
             for(const el of input.querySelectorAll(`code[class*='language-!${key}']`)) {
+                if(key!=="html" && key!=="javascript") continue;
                 el.classList.remove(`language-!${key}`);
                 el.classList.add(`language-${key}`);
                 const text = value(el.textContent);

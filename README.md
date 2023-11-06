@@ -9,8 +9,9 @@ Amplify your Markdown documentation with executable examples.
 It helps you to ensure that your examples are always in sync with executable JavaScript or
 presentable HTML output. You can do less work and deliver more.
 
-If you like `examplify`, check out `lazui` at [lazui.org](https://lazui.org) for activating
-your Markdown files.
+If you like `examplify`, check out `lazui` at [lazui.org](https://lazui.org/lazui.md#examplify-and-showsource) for activating
+your Markdown files. Almost all the example code on lazui.org uses `examplify`, plus there are 
+a lot of other goodies.
 
 ## Installation
 
@@ -35,27 +36,27 @@ And use the file `examplify.js` in your project.
 This Markdown:
 
 <pre>
-&grave;&grave;&grave;!html
+&#96;&#96;&#96;!html
 &lt;script&gt;console.log('Hello, World!');&lt;/script&gt;
-&grave;&grave;&grave;
+&grave;&#96;&#96;
 </pre>
 
 
 Will be turned into this:
 
 <pre>
-&grave;&grave;&grave;html
+&#96;&#96;&#96;!html
 &lt;script&gt;console.log('Hello, World!');&lt;/script&gt;
-&grave;&grave;&grave;
+&#96;&#96;&#96;
 &lt;script&gt;console.log('Hello, World!');&lt;/script&gt;
 </pre>
 
 And this Markdown:
 
 <pre>
-&grave;&grave;&grave;!html
+&grave;&#96;&#96;!html
 &lt;form&gt;&lt;input type="text" value="Hello, World!"&gt;&lt;/form&gt;
-&grave;&grave;&grave;
+&grave;&#96;&#96;
 </pre>
 
 Will actually render as a form with an input field after the Markdown.
@@ -117,6 +118,9 @@ will be converted to this:
 <script>console.log('Hello, World!');</script>
 ```
 
+*Note*: The script tags generated do not have a type. If you need a `module`, provide the example as `!html` with the 
+module script as source.
+
 Pass a `document` object or any `HTMLElement` to `examplify`. All code blocks matching `code[class*='language-!html']`
 will be processed. The internals will be inserted immediately after the code block as HTML and the class will be changed to
 `language-html`. Any `<script>` elements will be executed.
@@ -132,6 +136,9 @@ examplify(document);
 MIT
 
 # Release History (reverse chronological order)
+
+2023-11-06 v1.0.6 Fixing README so npmjs.com will render it properly, even though GitHub already does. Added a unit test
+for !javascript. Updated docs.
 
 2023-11-01 v1.0.5 More README formatting to handle GitHub nuances.
 
