@@ -56,9 +56,9 @@ This Markdown:
 </pre>
 
 ```markdown
-    ```!html
-        &lt;script&gt;console.log('Hello, World!');&lt;/script&gt;
-    ```
+```!html
+    <script&gt;console.log('Hello, World!');</script>;
+```
 ```
 
 
