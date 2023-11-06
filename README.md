@@ -64,45 +64,62 @@ Will be turned into this:
     ```
     <script></script>console.log('Hello, World!')</script>;
 ```
-<pre>
-&#96;&#96;&#96;html
-&lt;script&gt;console.log('Hello, World!');&lt;/script&gt;
-&#96;&#96;&#96;
-&lt;script&gt;console.log('Hello, World!');&lt;/script&gt;
-</pre>
+<script></script>console.log('Hello, World!')</script>;
 
 And this Markdown:
 
-<pre>
-&grave;&#96;&#96;!html
-&lt;form&gt;&lt;input type="text" value="Hello, World!"&gt;&lt;/form&gt;
-&grave;&#96;&#96;
-</pre>
+```markdown
+    ```!html
+    <form><input type="text" value="Hello, World!"></form>
+    ```
+```
+
+Will be turned into this:
+
+```markdown
+    ```!html
+    <form><input type="text" value="Hello, World!"></form>
+    ```
+    <form><input type="text" value="Hello, World!"></form>
+```
 
 Will actually render as a form with an input field after the Markdown.
 
 <form><input type="text" value="Hello, World!"></form>
 
+
 *Note*: You can't see it here because GitHub and NPM sanitize the HTML to remove forms, but the form is actually rendered.
 
 `!javascript` is also supported.
 
-<pre>
-&#96;&#96;&#96;!javascript
-console.log('Hello, World!')
-&grave;&#96;&#96;
-</pre>
-
-will produce the following HTML:
-
-```html
-<pre><code class="language-javascript">console.log("ok!")</code>
-<script>console.log("Hello, World!")</script></pre>
+```markdown
+    ```!javascript
+    console.log('Hello, World!');
+    ```
 ```
+
+Will produce the following HTML:
+
+```markdown
+    ```javascript
+    console.log('Hello, World!');
+    ```
+    <script>console.log('Hello, World!');</script>
+```
+<script>console.log('Hello, World!');</script>
 
 *Note*: The script tags generated do not have a type. If you need a `module`, provide the example as `!html` with the
 module script as source.
 
+You can even spice things up by updating the final DOM with your JavaScript:
+
+```markdown
+    <div id="message">
+    ```!javascript
+        const el = document.getElementById('message');
+        el.innerHTML = 'Hello, World!';
+    ```
+```
 
 ### After Markdown Parsing
 
