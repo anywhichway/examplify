@@ -62,7 +62,7 @@ Will be turned into this:
     ```html
     <script>console.log('Hello, World!');</script>;
     ```
-    <script></script>console.log('Hello, World!')</script>;
+    <script>console.log('Hello, World!')</script>;
 ```
 
 And this Markdown:
@@ -184,7 +184,7 @@ MIT
 
 # Release History (reverse chronological order)
 
-2023-11-06 v1.0.8 Documentation updates.
+2023-11-06 v1.0.8-9 Documentation updates.
 
 2023-11-06 v1.0.7 Sync npm and GitHub versions
 
