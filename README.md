@@ -59,7 +59,7 @@ This Markdown:
 Will be turned into this:
 
 ```markdown
-    ```!html
+    ```html
     <script>console.log('Hello, World!');</script>;
     ```
     <script></script>console.log('Hello, World!')</script>;
@@ -76,7 +76,7 @@ And this Markdown:
 Will be turned into this:
 
 ```markdown
-    ```!html
+    ```html
     <form><input type="text" value="Hello, World!"></form>
     ```
     <form><input type="text" value="Hello, World!"></form>
@@ -117,7 +117,7 @@ You can even spice things up by updating the final DOM with your JavaScript:
 
 ### After Markdown Parsing
 
-`examplify` will also process code blocks marked as `!html` after the Markdown has been parsed.
+`examplify` will also process code blocks marked as `!html` and `!javascript` after the Markdown has been parsed.
 
 You can use this in a browser if your server does not support `examplify`.
 
@@ -131,16 +131,16 @@ import { examplify } from 'examplify';
 examplify(document);
 ```
 
-This markup:
+This Markdown:
 
-<pre>
-&#96;&#96;&#96;!html
-&lt;script&gt;console.log('Hello, World!');&lt;/script&gt;
-&grave;&#96;&#96;
-</pre>
+```markdown
+    ```!html
+    <script>console.log('Hello, World!');</script>;
+    ```
+```
 
 
-will generate this HTML:
+Will generate this HTML:
 
 ```html
 <code class="language-!html">
@@ -158,7 +158,7 @@ will generate this HTML:
 </code>
 ```
 
-will be converted to this:
+Which will be converted to this:
 
 ```html
 <code class="language-html">
