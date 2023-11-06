@@ -33,6 +33,20 @@ And use the file `examplify.js` in your project.
 
 ### Before Markdown Parsing
 
+Prior to handing a string to a Markdown parser, pass it through `examplify`. Any code blocks
+marked as `!html` will be processed and the internals inserted immediately after the code block.
+
+```
+import { examplify } from 'examplify';
+
+const string = "```!html\n<script>console.log('Hello, World!');</script>\n```";
+
+const examplified = examplify(string);
+
+console.log(examplified);
+// => "```html\n<script>console.log('Hello, World!');</script>\n```\n<script>console.log('Hello, World!');</script>"
+```
+
 This Markdown:
 
 <pre>
@@ -61,6 +75,10 @@ And this Markdown:
 
 Will actually render as a form with an input field after the Markdown.
 
+<form><input type="text" value="Hello, World!"></form>
+
+*Note*: You can't see it here because GitHub and NPM sanitize the HTML to remove forms, but the form is actually rendered.
+
 `!javascript` is also supported.
 
 <pre>
@@ -79,25 +97,20 @@ will produce the following HTML:
 *Note*: The script tags generated do not have a type. If you need a `module`, provide the example as `!html` with the
 module script as source.
 
-<form><input type="text" value="Hello, World!"></form>
-
-Prior to handing a string to a Markdown parser, pass it through `examplify`. Any code blocks
-marked as `!html` will be processed and the internals inserted immediately after the code block.
-
-```
-import { examplify } from 'examplify';
-
-const string = "```!html\n<script>console.log('Hello, World!');</script>\n```";
-
-const examplified = examplify(string);
-
-console.log(examplified);
-// => "```html\n<script>console.log('Hello, World!');</script>\n```\n<script>console.log('Hello, World!');</script>"
-```
 
 ### After Markdown Parsing
 
 `examplify` will also process code blocks marked as `!html` after the Markdown has been parsed.
+
+Pass a `document` object or any `HTMLElement` to `examplify`. All code blocks matching `code[class*='language-!html']`
+will be processed. The internals will be inserted immediately after the code block as HTML and the class will be changed to
+`language-html`. Any `<script>` elements will be executed.
+
+```
+import { examplify } from 'examplify';
+
+examplify(document);
+```
 
 This markup:
 
@@ -145,16 +158,6 @@ will be converted to this:
 <script>console.log('Hello, World!');</script>
 ```
 
-
-Pass a `document` object or any `HTMLElement` to `examplify`. All code blocks matching `code[class*='language-!html']`
-will be processed. The internals will be inserted immediately after the code block as HTML and the class will be changed to
-`language-html`. Any `<script>` elements will be executed.
-
-```
-import { examplify } from 'examplify';
-
-examplify(document);
-```
 
 ## License
 
