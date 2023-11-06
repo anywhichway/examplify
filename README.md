@@ -64,7 +64,7 @@ Will be turned into this:
     ```
     <script></script>console.log('Hello, World!')</script>;
 ```
-<script></script>console.log('Hello, World!')</script>;
+<script>console.log('Hello, World!')</script>;
 
 And this Markdown:
 
@@ -106,7 +106,7 @@ Will produce the following HTML:
     ```
     <script>console.log('Hello, World!');</script>
 ```
-<script>console.log('Hello, World!');</script>
+<script>console.log('Hello, World!')</script>;
 
 *Note*: The script tags generated do not have a type. If you need a `module`, provide the example as `!html` with the
 module script as source.
