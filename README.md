@@ -45,7 +45,7 @@ This Markdown:
 Will be turned into this:
 
 <pre>
-&#96;&#96;&#96;!html
+&#96;&#96;&#96;html
 &lt;script&gt;console.log('Hello, World!');&lt;/script&gt;
 &#96;&#96;&#96;
 &lt;script&gt;console.log('Hello, World!');&lt;/script&gt;
@@ -81,7 +81,16 @@ console.log(examplified);
 
 `examplify` will also process code blocks marked as `!html` after the Markdown has been parsed.
 
-In which case, this HTML:
+This markup:
+
+<pre>
+&#96;&#96;&#96;!html
+&lt;script&gt;console.log('Hello, World!');&lt;/script&gt;
+&grave;&#96;&#96;
+</pre>
+
+
+will generate this HTML:
 
 ```html
 <code class="language-!html">
