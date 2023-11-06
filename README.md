@@ -49,12 +49,6 @@ console.log(examplified);
 
 This Markdown:
 
-<pre>
-&#96;&#96;&#96;!html
-&lt;script&gt;console.log('Hello, World!');&lt;/script&gt;
-&grave;&#96;&#96;
-</pre>
-
 ```markdown
     ```!html
     <script>console.log('Hello, World!');</script>;
@@ -64,6 +58,12 @@ This Markdown:
 
 Will be turned into this:
 
+```markdown
+    ```!html
+    <script>console.log('Hello, World!');</script>;
+    ```
+    <script></script>console.log('Hello, World!')</script>;
+```
 <pre>
 &#96;&#96;&#96;html
 &lt;script&gt;console.log('Hello, World!');&lt;/script&gt;
