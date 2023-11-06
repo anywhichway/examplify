@@ -167,6 +167,8 @@ MIT
 
 # Release History (reverse chronological order)
 
+2023-11-06 v1.0.7 Sync npm and GitHub versions
+
 2023-11-06 v1.0.6 Fixing README so npmjs.com will render it properly, even though GitHub already does. Added a unit test
 for !javascript. Updated docs.
 
