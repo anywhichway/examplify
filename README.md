@@ -38,13 +38,19 @@ marked as `!html` will be processed and the internals inserted immediately after
 
 ```
 import { examplify } from 'examplify';
+import {default as MarkdownIt} from "markdown-it";
+
+const md = new MarkdownIt({
+    html: true,
+    linkify: true,
+    typographer: false
+})
 
 const string = "```!html\n<script>console.log('Hello, World!');</script>\n```";
 
 const examplified = examplify(string);
 
-console.log(examplified);
-// => "```html\n<script>console.log('Hello, World!');</script>\n```\n<script>console.log('Hello, World!');</script>"
+const markedDown = md.render(examplified);
 ```
 
 This Markdown:
@@ -183,6 +189,8 @@ Which will be converted to this:
 MIT
 
 # Release History (reverse chronological order)
+
+2024-04-30 v1.0.10 Added support for code blocks being inside a PRE tag and elevating the example outside the PRE
 
 2023-11-06 v1.0.8-9 Documentation updates.
 
