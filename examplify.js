@@ -59,6 +59,9 @@ const replacementCallbackAsync = async (text,{startDelimiter,endDelimiter,evalua
 }
 
 const examplify = (input,evaluate={}) => {
+    document.head.insertAdjacentHTML("beforeend",`<style>
+.examplified::after { font-size: x-small; position: relative; top: 1em; content: "Rendered by https://www.npmjs.com/examplify"}
+</style>`);
     const type = typeof input;
     evaluate = {
         html(text) { return text },
@@ -84,6 +87,7 @@ const examplify = (input,evaluate={}) => {
                     stop = el.parentElement.nextElementSibling;
                     el.parentElement.insertAdjacentHTML("afterend", text);
                     next = el.parentElement.nextElementSibling;
+                    el.parentElement.classList.add("examplified");
                 } else {
                     stop = el.nextElementSibling;
                     el.insertAdjacentHTML("afterend",text);
@@ -106,6 +110,9 @@ const examplify = (input,evaluate={}) => {
 }
 
 const examplifyAsync = async (input,evaluate={}) => {
+document.head.insertAdjacentHTML("beforeend",`<style>
+.examplified::after { font-size: x-small; position: relative; top: 1em; content: "Rendered by https://www.npmjs.com/examplify"}
+</style>`);
     const type = typeof input;
     evaluate = {
         html(text) { return text },
@@ -130,16 +137,18 @@ const examplifyAsync = async (input,evaluate={}) => {
                     stop = el.parentElement.nextElementSibling;
                     el.parentElement.insertAdjacentHTML("afterend", text);
                     next = el.parentElement.nextElementSibling;
+                    el.parentElement.classList.add("examplified");
                 } else {
                     stop = el.nextElementSibling;
                     el.insertAdjacentHTML("afterend",text);
                     next = el.nextElementSibling;
                 }
-                while(next!==stop) {
+                while(next && next!==stop) {
                     if(next.tagName==="SCRIPT") {
                         const script = document.createElement("script");
                         script.innerHTML = next.innerHTML;
-                        next.replaceWith(script)
+                        next.replaceWith(script);
+                        next = script;
                     }
                     next = next.nextElementSibling;
                 }

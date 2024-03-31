@@ -190,6 +190,8 @@ MIT
 
 # Release History (reverse chronological order)
 
+2024-04-31 v1.0.13 Added 'Rendered by Examplify treatment'
+
 2024-04-31 v1.0.12 Addressed bug with SCRIPT tags in PRE tags
 
 2024-04-30 v1.0.11 More work on PRE
