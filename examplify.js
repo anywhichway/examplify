@@ -89,11 +89,12 @@ const examplify = (input,evaluate={}) => {
                     el.insertAdjacentHTML("afterend",text);
                     next = el.nextElementSibling;
                 }
-                while(next!==stop) {
+                while(next && next!==stop) {
                     if(next.tagName==="SCRIPT") {
                         const script = document.createElement("script");
                         script.innerHTML = next.innerHTML;
-                        next.replaceWith(script)
+                        next.replaceWith(script);
+                        next = script;
                     }
                     next = next.nextElementSibling;
                 }

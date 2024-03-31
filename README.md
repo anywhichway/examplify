@@ -190,6 +190,8 @@ MIT
 
 # Release History (reverse chronological order)
 
+2024-04-31 v1.0.12 Addressed bug with SCRIPT tags in PRE tags
+
 2024-04-30 v1.0.11 More work on PRE
 
 2024-04-30 v1.0.10 Added support for code blocks being inside a PRE tag and elevating the example outside the PRE
