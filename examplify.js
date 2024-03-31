@@ -78,10 +78,18 @@ const examplify = (input,evaluate={}) => {
                 el.classList.remove(`language-!${key}`);
                 el.classList.add(`language-${key}`);
                 const text = value(el.textContent);
-                const nextElementSibling = el.nextElementSibling;
-                el.insertAdjacentHTML("afterend",text);
-                let next = el.nextElementSibling;
-                while(next!==nextElementSibling) {
+                let stop,
+                    next;
+                if(el.parentElement.tagName==="PRE") {
+                    stop = el.parentElement.nextElementSibling;
+                    el.parentElement.insertAdjacentHTML("afterend", text);
+                    next = el.parentElement.nextElementSibling;
+                } else {
+                    stop = el.nextElementSibling;
+                    el.insertAdjacentHTML("afterend",text);
+                    next = el.nextElementSibling;
+                }
+                while(next!==stop) {
                     if(next.tagName==="SCRIPT") {
                         const script = document.createElement("script");
                         script.innerHTML = next.innerHTML;

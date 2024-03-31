@@ -190,6 +190,8 @@ MIT
 
 # Release History (reverse chronological order)
 
+2024-04-30 v1.0.11 More work on PRE
+
 2024-04-30 v1.0.10 Added support for code blocks being inside a PRE tag and elevating the example outside the PRE
 
 2023-11-06 v1.0.8-9 Documentation updates.
